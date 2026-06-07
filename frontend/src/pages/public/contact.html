@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - G Design | Creative Studio & Academy Platform</title>
+    <!-- favicons Icons -->
+    <link rel="icon" type="image/svg+xml" href="../../../src/assets/images/company-img/favicon.svg" />
+    <meta name="description" content="Get in touch with G Design. We'd love to hear from you." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="#fb8500" />
+
+    <!-- DNS prefetch for external resources -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Marcellus&family=Unbounded:wght@200..900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Marcellus&family=Unbounded:wght@200..900&display=swap"></noscript>
+
+    <link rel="stylesheet" href="../../../src/assets/css/vendor/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../src/assets/css/vendor/animate.min.css" />
+        <link rel="stylesheet" href="../../../src/assets/css/vendor/swiper.min.css" />
+    <link rel="stylesheet" href="../../../src/assets/css/vendor/font-awesome-all.css" />
+    <link rel="stylesheet" href="../../../src/assets/css/vendor/jquery.magnific-popup.css" />
+    <link rel="stylesheet" href="../../../src/assets/css/vendor/odometer.min.css" />
+    <link rel="stylesheet" href="../../../src/assets/css/vendor/flaticon.css">
+    <link rel="stylesheet" href="../../../src/assets/css/vendor/owl.carousel.min.css" />
+    <link rel="stylesheet" href="../../../src/assets/css/vendor/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="../../../src/assets/css/vendor/nice-select.css" />
+    <link rel="stylesheet" href="../../../src/assets/css/vendor/jquery-ui.css" />
+    <link rel="stylesheet" href="../../../src/assets/css/vendor/aos.css" />
+
+                                                                    
+    <!-- template styles -->
+    <link rel="stylesheet" href="../../../src/assets/css/base.css" />
+    <link rel="stylesheet" href="../../../src/assets/css/components.css" />
+    <link rel="stylesheet" href="../../../src/assets/css/layout.css" />
+    <link rel="stylesheet" href="../../../src/assets/css/pages.css" />
+
+</head>
+
+<body class="custom-cursor">
+
+    <div class="custom-cursor__cursor"></div>
+    <div class="custom-cursor__cursor-two"></div>
+
+    <!--Start Preloader-->
+    <div class="loader js-preloader">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <!--End Preloader-->
+    <script>
+        // Fallback: hide preloader after 3 seconds if jQuery doesn't handle it
+        setTimeout(function() {
+            var preloader = document.querySelector('.js-preloader');
+            if (preloader && preloader.style.display !== 'none') {
+                preloader.style.display = 'none';
+            }
+        }, 3000);
+    </script>
+
+    <div class="chat-icon"><button type="button" class="chat-toggler"><i class="fa fa-comment"></i></button></div>
+    <!--Chat Popup-->
+    <div id="chat-popup" class="chat-popup">
+        <div class="popup-inner">
+            <div class="close-chat"><i class="fa fa-times"></i></div>
+            <div class="chat-form">
+                <p>Please fill out the form below and we will get back to you as soon as possible.</p>
+                <form action="../assets/inc/sendemail.php" method="POST" class="contact-form-validated">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Your Text" required></textarea>
+                    </div>
+                    <div class="form-group message-btn">
+                        <button type="submit" class="thm-btn"> Submit Now
+                            <span class="fas fa-arrow-right"></span>
+                        </button>
+                    </div>
+                    <div class="result"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-wrapper">
+        <header class="main-header">
+            <nav class="main-menu">
+                <div class="main-menu__wrapper">
+                    <div class="main-menu__wrapper-inner">
+                        <div class="main-menu__left">
+                            <div class="main-menu__logo">
+                                <a href="../../../src/pages/public/index.html"><img src="../../../src/assets/images/company-img/dark-logo.svg" alt="G Design Logo" style="height: 50px; width: auto;"></a>
+                            </div>
+                        </div>
+                        <div class="main-menu__main-menu-box">
+                            <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
+                            <ul class="main-menu__list">
+                                <li>
+                                    <a href="../../../src/pages/public/index.html">Home</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="services.html">Services</a>
+                                    <ul>
+                                        <li><a href="services.html#products">Products</a></li>
+                                        <li><a href="services.html#training">Trainings</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="about.html">About</a>
+                                </li>
+                                <li class="current">
+                                    <a href="contact.html">Reach us</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="main-menu__right">
+                            <div class="main-menu__search-box">
+                                <a href="#" class="main-menu__search searcher-toggler-box fal fa-search"></a>
+                            </div>
+                            <div class="main-menu__btn-box">
+                                <a href="../../../src/pages/auth/register.html" class="thm-btn">Get started
+                                    <span class="icon-arrow-up-right"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <div class="stricky-header stricked-menu main-menu">
+            <div class="sticky-header__content"></div>
+        </div>
+
+        
+        <!-- Hero Section Start -->
+        <section class="banner-one" style="padding-bottom: 80px;">
+            <div class="banner-one__one-shape-bg"
+                style="background-image: url(../../../src/assets/images/shapes/banner-one-shape-bg.png);"></div>
+            <div class="banner-one__shape-one"
+                style="background-image: url(../../../src/assets/images/shapes/banner-one-shape-1.png);"></div>
+            <div class="banner-one__shape-two"></div>
+            <div class="container">
+                <div class="banner-one__inner">
+                    <div class="banner-one__sub-title-box">
+                        <p>Let's Build Something <br> Extraordinary Together</p>
+                    </div>
+                    <div class="banner-one__content-one" data-aos="fade-right" data-aos-duration="1000"
+                        data-aos-delay="0">
+                        <h2 class="banner-one__big-title-one">Get In</h2>
+                    </div>
+                    <div class="banner-one__content-two" data-aos="fade-left" data-aos-duration="1000"
+                        data-aos-delay="300">
+                        <ul class="banner-one__content-two-list" style="margin-left: 20px;">
+                            <li>
+                                <div class="banner-one__content-two-single">
+                                    <h3 style="font-size: 18px; line-height: 1.4; font-weight: 400; text-transform: none; max-width: 200px;">We're here to help you<br>grow your brand.</h3>
+                                </div>
+                            </li>
+                        </ul>
+                        <h2 class="banner-one__big-title-two">Touch</h2>
+                    </div>
+                    <div class="banner-one__details-box" style="margin-top: 40px;">
+                        <div class="banner-one__text-box-one" style="max-width: 500px;">
+                            <p style="font-size: 18px;">Whether you need full-scale production, strategic branding, or have questions about our academy, we're ready to listen.</p>
+                            <a href="#contact-form-section" style="margin-top: 20px; display: inline-block;">Message Us<span class="icon-arrow-down"></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Hero Section End -->
+
+        <!-- Contact Options Grid Start -->
+        <section class="service-one" style="background-color: var(--nexin-white); padding: 80px 0 40px;">
+            <div class="container">
+                <div class="row custom-bento-grid" style="grid-auto-rows: minmax(200px, auto);">
+                    <div class="col-xl-4 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="100ms">
+                        <div class="bento-card" style="height: 100%; border-radius: 20px; background-color: #f8f9fa; border: 1px solid rgba(0,0,0,0.05); padding: 40px; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease;">
+                            <div>
+                                <i class="fa fa-envelope" style="font-size: 30px; color: var(--nexin-base); margin-bottom: 20px;"></i>
+                                <h3 style="font-size: 24px; font-weight: 500; color: var(--nexin-black); margin-bottom: 10px;">Email Us</h3>
+                                <p style="color: var(--nexin-gray); font-size: 16px; margin-bottom: 0;">For general inquiries and partnerships.</p>
+                            </div>
+                            <div style="margin-top: 30px;">
+                                <a href="mailto:hello@gdesign.africa" style="color: var(--nexin-black); font-weight: 600; font-size: 18px; text-decoration: none;">hello@gdesign.africa</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms">
+                        <div class="bento-card" style="height: 100%; border-radius: 20px; background-color: #f8f9fa; border: 1px solid rgba(0,0,0,0.05); padding: 40px; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease;">
+                            <div>
+                                <i class="fa fa-phone-alt" style="font-size: 30px; color: var(--nexin-base); margin-bottom: 20px;"></i>
+                                <h3 style="font-size: 24px; font-weight: 500; color: var(--nexin-black); margin-bottom: 10px;">Call Us</h3>
+                                <p style="color: var(--nexin-gray); font-size: 16px; margin-bottom: 0;">Speak directly with our creative team.</p>
+                            </div>
+                            <div style="margin-top: 30px;">
+                                <a href="tel:+254700000000" style="color: var(--nexin-black); font-weight: 600; font-size: 18px; text-decoration: none;">+254 700 000 000</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-12 wow fadeInUp" data-wow-delay="300ms">
+                        <div class="bento-card" style="height: 100%; border-radius: 20px; background-color: #f8f9fa; border: 1px solid rgba(0,0,0,0.05); padding: 40px; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease;">
+                            <div>
+                                <i class="fa fa-map-marker-alt" style="font-size: 30px; color: var(--nexin-base); margin-bottom: 20px;"></i>
+                                <h3 style="font-size: 24px; font-weight: 500; color: var(--nexin-black); margin-bottom: 10px;">Visit Us</h3>
+                                <p style="color: var(--nexin-gray); font-size: 16px; margin-bottom: 0;">Drop by our studio for a coffee and chat.</p>
+                            </div>
+                            <div style="margin-top: 30px;">
+                                <p style="color: var(--nexin-black); font-weight: 600; font-size: 18px; margin: 0;">Nairobi, Kenya</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Contact Options Grid End -->
+
+        <!-- Contact Form Section Start -->
+        <section id="contact-form-section" class="contact-page" style="padding: 100px 0; background-color: var(--nexin-white);">
+            <div class="container">
+                <div class="row align-items-start">
+                    <div class="col-xl-5" data-aos="fade-right" data-aos-duration="1000">
+                        <h2 class="about-one__title" style="color: var(--nexin-black); font-size: 48px; line-height: 1.2; margin-bottom: 20px; font-weight: 500;">
+                            Send us a message
+                        </h2>
+                        <p class="about-one__text" style="color: var(--nexin-gray); font-size: 18px; line-height: 1.6; margin-bottom: 40px; max-width: 400px;">
+                            Fill out the form and our team will get back to you within 24 hours.
+                        </p>
+                        
+                        <div style="margin-top: 40px;">
+                            <h4 style="font-size: 20px; font-weight: 500; color: var(--nexin-black); margin-bottom: 15px;">Business Hours</h4>
+                            <p style="color: var(--nexin-gray); font-size: 16px; margin-bottom: 5px;">Monday - Friday: 9:00 AM - 6:00 PM</p>
+                            <p style="color: var(--nexin-gray); font-size: 16px; margin-bottom: 0;">Saturday - Sunday: Closed</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-xl-7" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                        <div style="background-color: var(--nexin-black); padding: 50px; border-radius: 20px;">
+                            <form action="../assets/inc/sendemail.php" method="POST" class="contact-form-validated contact-one__form">
+                                <div class="row">
+                                    <div class="col-xl-6 col-lg-6">
+                                        <div class="contact-one__input-box">
+                                            <h4 class="contact-one__input-title">Full Name <span>*</span></h4>
+                                            <input type="text" name="name" placeholder="John Doe" required style="border-bottom: 1px solid rgba(255,255,255,0.2); color: var(--nexin-white);">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6">
+                                        <div class="contact-one__input-box">
+                                            <h4 class="contact-one__input-title">Email Address <span>*</span></h4>
+                                            <input type="email" name="email" placeholder="john@example.com" required style="border-bottom: 1px solid rgba(255,255,255,0.2); color: var(--nexin-white);">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-6 col-lg-6">
+                                        <div class="contact-one__input-box">
+                                            <h4 class="contact-one__input-title">Phone Number</h4>
+                                            <input type="text" name="phone" placeholder="+254 XXX XXX" style="border-bottom: 1px solid rgba(255,255,255,0.2); color: var(--nexin-white);">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6">
+                                        <div class="contact-one__input-box">
+                                            <h4 class="contact-one__input-title">Service of Interest <span>*</span></h4>
+                                            <select name="service" required style="width: 100%; height: 42px; background-color: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,0.2); color: var(--nexin-gray); font-size: 14px; outline: none; -webkit-appearance: none; appearance: none; border-radius: 0;">
+                                                <option value="" disabled selected style="color: #666; background-color: var(--nexin-black);">Select a service</option>
+                                                <option value="branding" style="background-color: var(--nexin-black);">Branding</option>
+                                                <option value="design" style="background-color: var(--nexin-black);">Graphic Design</option>
+                                                <option value="video" style="background-color: var(--nexin-black);">Video Production</option>
+                                                <option value="marketing" style="background-color: var(--nexin-black);">Digital Marketing</option>
+                                                <option value="training" style="background-color: var(--nexin-black);">Training & Academy</option>
+                                                <option value="other" style="background-color: var(--nexin-black);">Other</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-12">
+                                        <div class="contact-one__input-box text-message-box" style="margin-bottom: 30px;">
+                                            <h4 class="contact-one__input-title">Your Message <span>*</span></h4>
+                                            <textarea name="message" placeholder="Tell us about your project..." required style="border-bottom: 1px solid rgba(255,255,255,0.2); color: var(--nexin-white); padding-top: 15px; resize: none;"></textarea>
+                                        </div>
+                                        <div class="contact-one__btn-box">
+                                            <button type="submit" class="thm-btn" style="width: 100%; display: flex; justify-content: center; align-items: center; background-color: var(--nexin-base); color: var(--nexin-black);">
+                                                Send Message <span class="fas fa-arrow-right" style="margin-left: 10px;"></span>
+                                            </button>
+                                        </div>
+                                        <div class="result" style="margin-top: 15px; color: var(--nexin-white);"></div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Contact Form Section End -->
+
+        <!-- Reassurance & Final CTA Section Start -->
+        <section class="about-one" style="padding: 100px 0; background-color: var(--nexin-white); border-top: 1px solid rgba(0,0,0,0.05);">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-8 text-center" data-aos="fade-up" data-aos-duration="1000">
+                        <i class="fa fa-handshake" style="font-size: 40px; color: var(--nexin-base); margin-bottom: 20px;"></i>
+                        <h2 class="about-one__title" style="color: var(--nexin-black); font-size: 40px; line-height: 1.2; margin-bottom: 20px; font-weight: 500;">
+                            Your Vision, Our Expertise
+                        </h2>
+                        <p class="about-one__text" style="color: var(--nexin-gray); font-size: 20px; line-height: 1.6; margin-bottom: 0;">
+                            Join hundreds of successful businesses and creators who trust G Design to elevate their brand and tell their story.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Reassurance & Final CTA Section End -->
+
+        <!--Site Footer Start-->
+        <div id="footer"></div>
+
+    </div><!-- /.page-wrapper -->
+
+    <div class="mobile-nav__wrapper">
+        <div class="mobile-nav__overlay mobile-nav__toggler"></div>
+        <!-- /.mobile-nav__overlay -->
+        <div class="mobile-nav__content">
+            <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
+
+            <div class="logo-box">
+                <a href="../../../src/pages/public/index.html" aria-label="logo image"><img src="../../../src/assets/images/company-img/g-logo.svg" width="150" height="auto" alt="G Design Logo" /></a>
+            </div>
+            <!-- /.logo-box -->
+            <div class="mobile-nav__container"></div>
+            <!-- /.mobile-nav__container -->
+        </div>
+        <!-- /.mobile-nav__content -->
+    </div>
+    <!-- /.mobile-nav__wrapper -->
+
+    <div class="search-popup">
+        <div class="search-popup__overlay search-toggler"></div>
+        <!-- /.search-popup__overlay -->
+        <div class="search-popup__content">
+            <form action="#">
+                <label for="search" class="sr-only">search here</label><!-- /.sr-only -->
+                <input type="text" id="search" placeholder="Search Here..." />
+                <button type="submit" aria-label="search submit" class="thm-btn">
+                    <span><i class="icon-magnifying-glass"></i></span>
+                </button>
+            </form>
+        </div>
+        <!-- /.search-popup__content -->
+    </div>
+    <!-- /.search-popup -->
+
+    <!-- JS Scripts -->
+    <script> window.ROOT_PATH = "../../.."; </script>
+    <script src="../../../src/assets/js/vendor/jquery-latest.js"></script>
+    <script src="../../../src/assets/js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="../../../src/assets/js/vendor/gsap/gsap.js"></script>
+    <script src="../../../src/assets/js/vendor/gsap/ScrollTrigger.js"></script>
+    <script src="../../../src/assets/js/vendor/gsap/SplitText.js"></script>
+    <script src="../../../src/assets/js/vendor/aos.js"></script>
+    <script src="../../../src/assets/js/core/config.js"></script>
+    <script src="../../../src/assets/js/core/auth.js"></script>
+    <script src="../../../src/assets/js/core/app.js"></script>
+    <script src="../../../src/assets/js/vendor/jquery-ui.js" defer></script>
+    <script src="../../../src/assets/js/jquery.magnific-popup.js" defer></script>
+    <script src="../../../src/assets/js/vendor/odometer.min.js" defer></script>
+    <script src="../../../src/assets/js/appear.min.js" defer></script>
+    <script src="../../../src/assets/js/vendor/swiper.min.js" defer></script>
+    <script src="../../../src/assets/js/vendor/wow.js" defer></script>
+    <script src="../../../src/api/api.js"></script>
+    <script src="../../../src/utils/helpers.js"></script>
+</body>
+
+</html>

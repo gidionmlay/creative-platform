@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Your Account - G Design</title>
+    <!-- favicons Icons -->
+    <link rel="icon" type="image/svg+xml" href="../../../src/assets/images/company-img/favicon.svg" />
+    <meta name="description" content="Join G Design to access creative services, professional training, and opportunities to grow your skills and brand." />
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Marcellus&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../../src/assets/css/vendor/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../src/assets/css/vendor/animate.min.css" />
+        <link rel="stylesheet" href="../../../src/assets/css/vendor/font-awesome-all.css" />
+    <link rel="stylesheet" href="../../../src/assets/css/vendor/aos.css" />
+    <link rel="stylesheet" href="../../../src/assets/css/base.css" />
+    <link rel="stylesheet" href="../../../src/assets/css/components.css" />
+    <link rel="stylesheet" href="../../../src/assets/css/layout.css" />
+    <link rel="stylesheet" href="../../../src/assets/css/pages.css" />
+
+    <style>
+        :root {
+            --auth-bg-color: #ffffff;
+            --auth-text-color: #000000;
+            --auth-accent-color: #fb8500;
+        }
+
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: var(--nexin-font);
+            overflow-x: hidden;
+        }
+
+        .auth-wrapper {
+            display: flex;
+            min-height: 100vh;
+            width: 100%;
+        }
+
+        /* Left Visual Section */
+        .auth-left {
+            flex: 1;
+            position: relative;
+            background-image: url(../../../src/assets/images/backgrounds/register-bg.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px;
+            color: var(--nexin-white);
+            overflow: hidden;
+        }
+
+        .auth-left::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 100%);
+            z-index: 1;
+        }
+
+        .auth-left-content {
+            position: relative;
+            z-index: 2;
+            max-width: 500px;
+        }
+
+        .auth-left-content h1 {
+            font-family: 'Unbounded', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            color: var(--nexin-white);
+        }
+
+        .auth-left-content p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .auth-left-features {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .auth-left-features li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .auth-left-features li i {
+            color: var(--nexin-base);
+            margin-right: 15px;
+            font-size: 18px;
+        }
+
+        /* Right Form Section */
+        .auth-right {
+            flex: 1;
+            background-color: var(--nexin-white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px;
+            position: relative;
+        }
+
+        .auth-form-container {
+            width: 100%;
+            max-width: 450px;
+            animation: fadeInRight 0.8s ease-out;
+        }
+
+        .auth-logo {
+            margin-bottom: 40px;
+        }
+
+        .auth-logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .auth-header {
+            margin-bottom: 35px;
+        }
+
+        .auth-header h2 {
+            font-size: 32px;
+            font-weight: 600;
+            color: var(--nexin-black);
+            margin-bottom: 10px;
+        }
+
+        .auth-header p {
+            color: var(--nexin-gray);
+            font-size: 16px;
+        }
+
+        .auth-form .form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .auth-form .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--nexin-black);
+            margin-bottom: 8px;
+        }
+
+        .auth-form .input-wrapper {
+            position: relative;
+        }
+
+        .auth-form .input-wrapper i {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--nexin-gray);
+            font-size: 16px;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        .auth-form input, 
+        .auth-form select {
+            width: 100%;
+            height: 45px;
+            padding: 0 0 0 30px;
+            background-color: transparent;
+            border: none;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 15px;
+            color: var(--nexin-black);
+            transition: all 0.3s ease;
+            outline: none;
+            border-radius: 0;
+        }
+
+        .auth-form input:focus,
+        .auth-form select:focus {
+            border-bottom-color: var(--nexin-base);
+        }
+
+        .auth-form input:focus + i,
+        .auth-form select:focus + i {
+            color: var(--nexin-base);
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: var(--nexin-gray);
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .password-toggle:hover {
+            color: var(--nexin-base);
+        }
+
+        .error-message {
+            color: #dc3545;
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .auth-btn-group {
+            margin-top: 40px;
+        }
+
+        .auth-footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 15px;
+            color: var(--nexin-gray);
+        }
+
+        .auth-footer a {
+            color: var(--nexin-base);
+            font-weight: 600;
+            text-decoration: none;
+            margin-left: 5px;
+        }
+
+        .auth-footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 991px) {
+            .auth-wrapper {
+                flex-direction: column-reverse; /* Form first (top) */
+            }
+
+            .auth-left {
+                min-height: 300px;
+                padding: 40px 20px;
+            }
+
+            .auth-left-content h1 {
+                font-size: 32px;
+            }
+
+            .auth-right {
+                padding: 40px 20px;
+            }
+
+            .auth-form-container {
+                max-width: 100%;
+            }
+        }
+
+        /* Custom select styling */
+        select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%236c757d' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: calc(100% - 5px) center;
+        }
+
+        /* Success Message Overlay */
+        .success-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.98);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            flex-direction: column;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .success-overlay i {
+            font-size: 80px;
+            color: var(--nexin-base);
+            margin-bottom: 20px;
+        }
+
+        .success-overlay h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .success-overlay p {
+            font-size: 18px;
+            color: var(--nexin-gray);
+            margin-bottom: 30px;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+
+<body class="custom-cursor">
+
+    <div class="custom-cursor__cursor"></div>
+    <div class="custom-cursor__cursor-two"></div>
+
+    <div class="auth-wrapper">
+        <!-- Left Section -->
+        <div class="auth-left">
+            <div class="auth-left-content" data-aos="fade-up" data-aos-duration="1200">
+                <h1>Start Your Creative Journey</h1>
+                <p>Join G Design to access creative services, professional training, and opportunities to grow your skills and brand.</p>
+                <ul class="auth-left-features">
+                    <li><i class="fas fa-check-circle"></i> Learn real-world digital skills</li>
+                    <li><i class="fas fa-check-circle"></i> Work with industry professionals</li>
+                    <li><i class="fas fa-check-circle"></i> Build your global opportunities</li>
+                    <li><i class="fas fa-check-circle"></i> Access exclusive creative resources</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Right Section -->
+        <div class="auth-right">
+            <div class="auth-form-container">
+                <div class="auth-logo">
+                    <a href="../../../src/pages/public/index.html">
+                        <img src="../../../src/assets/images/company-img/dark-logo.svg" alt="G Design Logo">
+                    </a>
+                </div>
+
+                <div class="auth-header">
+                    <h2>Create Your Account</h2>
+                    <p>Enter your details to get started with G Design.</p>
+                </div>
+
+                <form id="registerForm" class="auth-form">
+                    <div class="form-group">
+                        <label class="form-label">Username</label>
+                        <div class="input-wrapper">
+                            <input type="text" id="username" name="username" placeholder="johndoe" required>
+                            <i class="far fa-user"></i>
+                        </div>
+                        <div class="error-message" id="usernameError">Please enter a username.</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Email Address</label>
+                        <div class="input-wrapper">
+                            <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                            <i class="far fa-envelope"></i>
+                        </div>
+                        <div class="error-message" id="emailError">Please enter a valid email address.</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Phone Number</label>
+                        <div class="input-wrapper">
+                            <input type="tel" id="phone" name="phone" placeholder="+254 700 000 000" required>
+                            <i class="far fa-phone"></i>
+                        </div>
+                        <div class="error-message" id="phoneError">Please enter your phone number.</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">User Type</label>
+                        <div class="input-wrapper">
+                            <select id="userType" name="userType" required>
+                                <option value="" disabled selected>Select user type</option>
+                                <option value="client">Client (Studio Services)</option>
+                                <option value="student">Student (Academy)</option>
+                                <option value="partner">Creative Partner</option>
+                            </select>
+                            <i class="far fa-users"></i>
+                        </div>
+                        <div class="error-message" id="typeError">Please select a user type.</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Password</label>
+                        <div class="input-wrapper">
+                            <input type="password" id="password" name="password" placeholder="••••••••" required>
+                            <i class="far fa-lock"></i>
+                            <span class="password-toggle" onclick="togglePassword('password')">SHOW</span>
+                        </div>
+                        <div class="error-message" id="passwordError">Password must be at least 8 characters.</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Confirm Password</label>
+                        <div class="input-wrapper">
+                            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="••••••••" required>
+                            <i class="far fa-lock-alt"></i>
+                            <span class="password-toggle" onclick="togglePassword('confirmPassword')">SHOW</span>
+                        </div>
+                        <div class="error-message" id="confirmPasswordError">Passwords do not match.</div>
+                    </div>
+
+                    <div class="auth-btn-group">
+                        <button type="submit" class="thm-btn" style="width: 100%; text-align: center; display: flex; justify-content: center;">
+                            Create Account <span class="fas fa-arrow-right" style="margin-left: 10px;"></span>
+                        </button>
+                    </div>
+
+                    <div class="auth-footer">
+                        Already have an account? <a href="login.html">Login</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Message Overlay -->
+    <div class="success-overlay" id="successOverlay">
+        <i class="fas fa-check-circle"></i>
+        <h2>Welcome to G Design!</h2>
+        <p>Your account has been successfully created. Redirecting you to the dashboard...</p>
+        <a href="../../../src/pages/public/index.html" class="thm-btn">Go to Home</a>
+    </div>
+
+    <!-- JS Scripts -->
+    <script> window.ROOT_PATH = "../../.."; </script>
+    <script src="../../../src/assets/js/vendor/jquery-latest.js"></script>
+    <script src="../../../src/assets/js/vendor/aos.js"></script>
+    <script src="../../../src/assets/js/core/config.js"></script>
+    <script src="../../../src/assets/js/core/auth.js"></script>
+    <script src="../../../src/assets/js/core/app.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            if ($("[data-aos]").length) {
+                AOS.init({
+                    duration: 1200,
+                    easing: 'ease',
+                    once: true
+                });
+            }
+
+            // Form Submission
+            $('#registerForm').on('submit', function(e) {
+                e.preventDefault();
+                
+                // Reset errors
+                $('.error-message').hide();
+                let isValid = true;
+
+                // Simple validation
+                const username = $('#username').val();
+                const email = $('#email').val();
+                const phone = $('#phone').val();
+                const userType = $('#userType').val();
+                const password = $('#password').val();
+                const confirmPassword = $('#confirmPassword').val();
+
+                if (!username) {
+                    $('#usernameError').show();
+                    isValid = false;
+                }
+
+                if (!email || !email.includes('@')) {
+                    $('#emailError').show();
+                    isValid = false;
+                }
+
+                if (!phone) {
+                    $('#phoneError').show();
+                    isValid = false;
+                }
+
+                if (!userType) {
+                    $('#typeError').show();
+                    isValid = false;
+                }
+
+                if (password.length < 8) {
+                    $('#passwordError').show();
+                    isValid = false;
+                }
+
+                if (password !== confirmPassword) {
+                    $('#confirmPasswordError').show();
+                    isValid = false;
+                }
+
+                if (isValid) {
+                    // Send data to API
+                    window.api.register({ username, email, phone, role: userType, password }).then(function(response) {
+                        if (response && response.message) {
+                            // Show success overlay
+                            $('#successOverlay').css('display', 'flex').hide().fadeIn();
+                            
+                            const token = response.access || response.key;
+                            if (token && window.auth) window.auth.setToken(token);
+
+                            // Redirect based on role
+                            setTimeout(function() {
+                                window.api.redirectByRole(userType);
+                            }, 3000);
+                        } else {
+                            // Error is handled by handleRequest
+                        }
+                    });
+                }
+            });
+        });
+
+        function togglePassword(id) {
+            const input = document.getElementById(id);
+            const toggle = input.nextElementSibling.nextElementSibling;
+            
+            if (input.type === "password") {
+                input.type = "text";
+                toggle.textContent = "HIDE";
+            } else {
+                input.type = "password";
+                toggle.textContent = "SHOW";
+            }
+        }
+    </script>
+    <script src="../../../src/api/api.js"></script>
+    <script src="../../../src/utils/helpers.js"></script>
+</body>
+
+</html>

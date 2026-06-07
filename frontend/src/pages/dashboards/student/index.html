@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Dashboard - G Design</title>
+    <link rel="icon" type="image/svg+xml" href="../../../../src/assets/images/company-img/favicon.svg" />
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Marcellus&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+
+    <!-- existing styles -->
+    <link rel="stylesheet" href="../../../../src/assets/css/vendor/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../src/assets/css/vendor/animate.min.css" />
+    <link rel="stylesheet" href="../../../../src/assets/css/vendor/font-awesome-all.css" />
+    <link rel="stylesheet" href="../../../../src/assets/css/base.css" />
+    <link rel="stylesheet" href="../../../../src/assets/css/components.css" />
+    
+    <!-- Admin styles for consistent layout -->
+    <link rel="stylesheet" href="../../../../src/assets/css/pages.css" />
+    </head>
+
+<body class="admin-body">
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar" id="adminSidebar">
+            <div class="sidebar-header">
+                <a href="../../../../src/pages/public/index.html">
+                    <img src="../../../../src/assets/images/company-img/dark-logo.svg" alt="G Design Logo" class="sidebar-logo">
+                </a>
+                <button class="sidebar-close d-lg-none" id="sidebarClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul class="sidebar-menu">
+                    <li class="menu-item active" data-view="dashboard">
+                        <a href="#"><i class="fal fa-chart-pie"></i> Dashboard</a>
+                    </li>
+                    <li class="menu-item" data-view="courses">
+                        <a href="#"><i class="fal fa-graduation-cap"></i> My Courses</a>
+                    </li>
+                    <li class="menu-item d-none" id="courseViewNav" data-view="courseview">
+                        <a href="#"><i class="fal fa-play-circle"></i> Course Player</a>
+                    </li>
+                    <li class="menu-item" data-view="assignments">
+                        <a href="#"><i class="fal fa-tasks"></i> Assignments</a>
+                    </li>
+                    <li class="menu-item" data-view="certificates">
+                        <a href="#"><i class="fal fa-award"></i> Certificates</a>
+                    </li>
+                </ul>
+                
+                <div class="sidebar-bottom">
+                    <ul class="sidebar-menu">
+                        <li class="menu-item" data-view="settings">
+                            <a href="#"><i class="fal fa-cog"></i> Settings</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content Wrapper -->
+        <div class="admin-main">
+            <!-- Top Navbar -->
+            <header class="admin-header">
+                <div class="header-left">
+                    <button class="sidebar-toggle d-lg-none" id="sidebarToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h2 class="page-title" id="pageTitle">Dashboard</h2>
+                </div>
+                
+                <div class="header-right">
+                    <div class="header-action notification-box" style="position: relative;">
+                        <button class="action-btn" id="notificationBellIcon">
+                            <i class="fal fa-bell"></i>
+                            <span class="notification-badge" id="notificationBadge" style="display: none; position: absolute; top: 0; right: 0; background: var(--status-error); color: white; border-radius: 50%; font-size: 10px; width: 16px; height: 16px; align-items: center; justify-content: center;">0</span>
+                        </button>
+                        
+                        <!-- Notification Dropdown -->
+                        <div id="notificationDropdownContainer" style="display: none; position: absolute; top: calc(100% + 10px); right: -10px; width: 320px; background: white; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid var(--admin-border); z-index: 1000; overflow: hidden; animation: fadeIn 0.2s ease;">
+                            <div style="padding: 16px; border-bottom: 1px solid var(--admin-border); display: flex; justify-content: space-between; align-items: center; background: #f9fafb;">
+                                <h4 style="margin: 0; font-size: 15px; font-weight: 600;">Notifications</h4>
+                            </div>
+                            <div id="notificationDropdownList" style="max-height: 350px; overflow-y: auto;">
+                                <!-- Rendered via JS -->
+                            </div>
+                            <div id="notificationEmptyState" style="display: none; padding: 30px; text-align: center; color: var(--admin-text-muted);">
+                                <i class="fal fa-bell-slash" style="font-size: 24px; margin-bottom: 10px;"></i>
+                                <p style="margin: 0; font-size: 14px;">No new notifications</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="header-action profile-box">
+                        <div class="profile-dropdown-trigger" id="profileDropdownTrigger">
+                            <div class="profile-avatar" style="background-color: var(--status-success);">
+                                <span>—</span>
+                            </div>
+                            <div class="profile-info d-none d-md-block">
+                                <span class="profile-name">Loading...</span>
+                                <span class="profile-role">—</span>
+                            </div>
+                            <i class="fal fa-chevron-down"></i>
+                        </div>
+                        
+                        <div class="profile-dropdown-menu" id="profileDropdown">
+                            <a href="#" class="dropdown-item" data-view-trigger="settings"><i class="fal fa-user"></i> My Profile</a>
+                            <a href="#" class="dropdown-item"><i class="fal fa-cog"></i> Account Settings</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item text-danger" data-action="logout"><i class="fal fa-sign-out"></i> Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dynamic View Container -->
+            <main class="admin-content" id="adminContent">
+                <!-- Views will be injected here by student.js -->
+            </main>
+        </div>
+    </div>
+
+    <!-- JS Scripts -->
+    <script> window.ROOT_PATH = "../../../.."; </script>
+    <script src="../../../../src/assets/js/vendor/jquery-latest.js"></script>
+    <script src="../../../../src/assets/js/core/auth.js"></script>
+    <script src="../../../../src/assets/js/core/dashboard-guard.js"></script>
+    <script src="../../../../src/api/api.js"></script>
+    <script src="../../../../src/api/student.js"></script>
+    <script src="../../../../src/utils/helpers.js"></script>
+    <script src="../../../../src/assets/js/modules/student.js"></script>
+    <script src="../../../../src/assets/js/utils/socket.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.auth && !window.auth.isAuthenticated()) {
+                const root = window.ROOT_PATH || '';
+                window.location.href = root + '/src/pages/auth/login.html';
+            }
+        });
+    </script>
+</body>
+</html>

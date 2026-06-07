@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>G Design - Dashboard</title>
+    <link rel="stylesheet" href="../../src/assets/css/vendor/bootstrap.min.css" />
+        <link rel="stylesheet" href="../../src/assets/css/layout.css" />
+    <link rel="stylesheet" href="../../src/assets/css/pages.css" />
+</head>
+<body class="dashboard-body">
+    <div class="dashboard-wrapper">
+        <!-- Include Sidebar -->
+        <div id="sidebar"></div>
+        
+        <div class="dashboard-main-content">
+            <!-- Include Dashboard Header (Optional) -->
+            <div data-include="../../src/components/header/dashboard-header.html"></div>
+            
+            <main class="content-area">
+                <!-- DASHBOARD CONTENT GOES HERE -->
+            </main>
+        </div>
+    </div>
+    
+    <script> window.ROOT_PATH = "../.."; </script>
+    <script src="../../src/assets/js/vendor/jquery-latest.js"></script>
+    <script src="../../src/assets/js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="../../src/api/api.js"></script>
+    <script src="../../src/utils/helpers.js"></script>
+</body>
+</html>

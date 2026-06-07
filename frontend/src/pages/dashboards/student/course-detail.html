@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Course Player - G Design</title>
+    <link rel="icon" type="image/svg+xml" href="../../../../src/assets/images/company-img/favicon.svg" />
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Marcellus&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+
+    <!-- existing styles -->
+    <link rel="stylesheet" href="../../../../src/assets/css/vendor/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../src/assets/css/vendor/animate.min.css" />
+    <link rel="stylesheet" href="../../../../src/assets/css/vendor/font-awesome-all.css" />
+    <link rel="stylesheet" href="../../../../src/assets/css/base.css" />
+    <link rel="stylesheet" href="../../../../src/assets/css/components.css" />
+    <link rel="stylesheet" href="../../../../src/assets/css/pages.css" />
+    
+    <style>
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .playlist-card {
+            display: flex;
+            flex-direction: column;
+            height: calc(100vh - 120px);
+            min-height: 500px;
+        }
+        .playlist-header {
+            padding: 20px;
+            border-bottom: 1px solid var(--admin-border);
+        }
+        .playlist-content {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 10px;
+        }
+        .module-header {
+            padding: 15px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+        .module-header:hover {
+            background: #f8f9fa;
+        }
+        .lesson-item {
+            padding: 12px 15px 12px 30px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            border-radius: 8px;
+            transition: all 0.2s;
+            margin-bottom: 2px;
+        }
+        .lesson-item:hover {
+            background: #f8f9fa;
+        }
+        .lesson-item.active {
+            background: rgba(59, 130, 246, 0.05);
+            border-left: 3px solid var(--admin-accent);
+        }
+        .lesson-item.locked {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        .lesson-icon {
+            margin-right: 15px;
+            font-size: 16px;
+        }
+        .lesson-title {
+            flex-grow: 1;
+            font-size: 14px;
+            margin: 0;
+            font-weight: 500;
+        }
+        .lesson-duration {
+            font-size: 12px;
+            color: var(--admin-text-muted);
+        }
+        
+        /* Skeleton */
+        .skeleton-box {
+            background: #eee;
+            background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
+            border-radius: 8px;
+            background-size: 200% 100%;
+            animation: 1.5s shine linear infinite;
+        }
+        @keyframes shine {
+            to { background-position-x: -200%; }
+        }
+    </style>
+</head>
+
+<body class="admin-body">
+    <div class="admin-layout">
+        <!-- Sidebar (Minimal for Player) -->
+        <aside class="admin-sidebar" id="adminSidebar">
+            <div class="sidebar-header">
+                <a href="index.html">
+                    <img src="../../../../src/assets/images/company-img/dark-logo.svg" alt="G Design Logo" class="sidebar-logo">
+                </a>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul class="sidebar-menu">
+                    <li class="menu-item">
+                        <a href="index.html"><i class="fal fa-arrow-left"></i> Back to Dashboard</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content Wrapper -->
+        <div class="admin-main">
+            <!-- Dynamic View Container -->
+            <main class="admin-content" style="padding: 20px;">
+                <div class="view-container" style="max-width: 1400px;">
+                    
+                    <div class="row gutter-y-30">
+                        <!-- Video Player Column -->
+                        <div class="col-lg-8">
+                            <div class="mb-3 d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h3 style="font-family: var(--nexin-font); font-weight: 600;" id="pageCourseTitle">Loading Course...</h3>
+                                </div>
+                            </div>
+
+                            <div class="admin-card p-0 overflow-hidden mb-4" style="border-radius: 12px; border: none;">
+                                <div class="video-container" id="videoContainer">
+                                    <div class="skeleton-box" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
+                                </div>
+                                
+                                <div style="padding: 25px;">
+                                    <div class="d-flex justify-content-between align-items-start mb-3">
+                                        <h4 id="currentLessonTitle" style="font-size: 22px; font-weight: 600; margin: 0;">Loading Lesson...</h4>
+                                        <button id="markCompleteBtn" class="admin-btn" style="display: none;"><i class="fal fa-check-circle mr-2" style="margin-right: 8px;"></i> Mark Complete</button>
+                                    </div>
+                                    <p id="courseDescription" style="color: var(--admin-text-muted); font-size: 15px; margin-bottom: 20px;"></p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Playlist Column -->
+                        <div class="col-lg-4">
+                            <div class="admin-card p-0 playlist-card">
+                                <div class="playlist-header">
+                                    <h3 class="card-title m-0">Course Content</h3>
+                                    <div class="d-flex align-items-center mt-3">
+                                        <div class="chart-bar-track flex-grow-1 mr-3" style="margin-right: 10px;"><div id="overallProgressFill" class="chart-bar-fill" style="width: 0%; transition: width 0.5s;"></div></div>
+                                        <span id="overallProgressText" style="font-size: 12px; font-weight: 600;">0%</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="playlist-content" id="moduleAccordion">
+                                    <!-- Skeleton Loaders -->
+                                    <div class="skeleton-box mb-3" style="height: 50px;"></div>
+                                    <div class="skeleton-box mb-3" style="height: 50px;"></div>
+                                    <div class="skeleton-box mb-3" style="height: 50px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script> window.ROOT_PATH = "../../../.."; </script>
+    <script src="../../../../src/assets/js/vendor/jquery-latest.js"></script>
+    <script src="../../../../src/assets/js/core/auth.js"></script>
+    <script src="../../../../src/api/api.js"></script>
+    <script src="../../../../src/api/courses.js"></script>
+    <script src="../../../../src/utils/helpers.js"></script>
+    <script src="../../../../src/assets/js/modules/student/course-detail.js"></script>
+</body>
+</html>
