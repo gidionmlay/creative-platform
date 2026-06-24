@@ -69,7 +69,7 @@
         }, 3000);
     </script>
 
-    <div class="chat-icon"><button type="button" class="chat-toggler"><i class="fa fa-comment"></i></button></div>
+    <div class="chat-icon"><button type="button" class="chat-toggler" title="Send us a message" aria-label="Send us a message"><i class="fa fa-comment"></i></button></div>
     <!--Chat Popup-->
     <div id="chat-popup" class="chat-popup">
         <div class="popup-inner">
@@ -82,6 +82,9 @@
                     </div>
                     <div class="form-group">
                         <input type="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" name="phone" placeholder="Phone Number" required>
                     </div>
                     <div class="form-group">
                         <textarea name="message" placeholder="Your Text" required></textarea>
@@ -232,75 +235,75 @@
                     </div>
                 </div>
                 <div class="service-one__bottom">
-                    <div class="row">
+                    <div class="row custom-bento-grid" id="servicesBentoGrid">
                         <div class="col-xl-8 col-lg-8 col-md-12 wow fadeInLeft" data-wow-delay="100ms">
-                            <div class="bento-card">
-                                <div class="bento-bg" style="background-image: url(../../../src/assets/images/project/portfolio-2-1.jpg');"></div>
+                            <div class="bento-card" data-bento-title="Branding">
+                                <div class="bento-bg"></div>
                                 <div class="bento-content">
                                     <h3 class="bento-title">Branding</h3>
                                     <div class="bento-hover-content">
                                         <p>Strategic brand identity and visual systems</p>
-                                        <a href="#" class="bento-arrow"><span class="icon-arrow-up-right"></span></a>
+                                        <a href="#branding" class="bento-arrow"><span class="icon-arrow-up-right"></span></a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-6 wow fadeInRight" data-wow-delay="200ms">
-                            <div class="bento-card">
-                                <div class="bento-bg" style="background-image: url(../../../src/assets/images/project/portfolio-2-2.jpg');"></div>
+                            <div class="bento-card" data-bento-title="Graphic Design">
+                                <div class="bento-bg"></div>
                                 <div class="bento-content">
-                                    <h3 class="bento-title">Design</h3>
+                                    <h3 class="bento-title">Graphic Design</h3>
                                     <div class="bento-hover-content">
                                         <p>Digital and print design solutions</p>
-                                        <a href="#" class="bento-arrow"><span class="icon-arrow-up-right"></span></a>
+                                        <a href="#design" class="bento-arrow"><span class="icon-arrow-up-right"></span></a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-6 wow fadeInLeft" data-wow-delay="300ms">
-                            <div class="bento-card">
-                                <div class="bento-bg" style="background-image: url(../../../src/assets/images/project/portfolio-2-3.jpg');"></div>
+                            <div class="bento-card" data-bento-title="Video Production">
+                                <div class="bento-bg"></div>
                                 <div class="bento-content">
-                                    <h3 class="bento-title">Production</h3>
+                                    <h3 class="bento-title">Video Production</h3>
                                     <div class="bento-hover-content">
                                         <p>Content creation and media production</p>
-                                        <a href="#" class="bento-arrow"><span class="icon-arrow-up-right"></span></a>
+                                        <a href="#video" class="bento-arrow"><span class="icon-arrow-up-right"></span></a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="400ms">
-                            <div class="bento-card">
-                                <div class="bento-bg" style="background-image: url(../../../src/assets/images/project/portfolio-2-4.jpg');"></div>
+                            <div class="bento-card" data-bento-title="Digital Marketing">
+                                <div class="bento-bg"></div>
                                 <div class="bento-content">
-                                    <h3 class="bento-title">Marketing</h3>
+                                    <h3 class="bento-title">Digital Marketing</h3>
                                     <div class="bento-hover-content">
                                         <p>Digital marketing and campaign strategy</p>
-                                        <a href="#" class="bento-arrow"><span class="icon-arrow-up-right"></span></a>
+                                        <a href="#marketing" class="bento-arrow"><span class="icon-arrow-up-right"></span></a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-6 wow fadeInRight" data-wow-delay="500ms">
-                            <div class="bento-card">
-                                <div class="bento-bg" style="background-image: url(../../../src/assets/images/project/portfolio-3-1.jpg');"></div>
+                            <div class="bento-card" data-bento-title="Printing Services">
+                                <div class="bento-bg"></div>
                                 <div class="bento-content">
-                                    <h3 class="bento-title">Printing</h3>
+                                    <h3 class="bento-title">Printing Services</h3>
                                     <div class="bento-hover-content">
                                         <p>High-quality printing and merchandise</p>
-                                        <a href="#" class="bento-arrow"><span class="icon-arrow-up-right"></span></a>
+                                        <a href="#printing" class="bento-arrow"><span class="icon-arrow-up-right"></span></a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-xl-12 col-lg-12 col-md-12 wow fadeInUp" data-wow-delay="600ms">
-                            <div class="bento-card bento-card--large">
-                                <div class="bento-bg" style="background-image: url(../../../src/assets/images/project/portfolio-3-2.jpg');"></div>
+                            <div class="bento-card bento-card--large" data-bento-title="Training & Digital Skills">
+                                <div class="bento-bg"></div>
                                 <div class="bento-content">
-                                    <h3 class="bento-title">Training</h3>
+                                    <h3 class="bento-title">Training & Digital Skills</h3>
                                     <div class="bento-hover-content">
                                         <p>Professional development programs</p>
-                                        <a href="#" class="bento-arrow"><span class="icon-arrow-up-right"></span></a>
+                                        <a href="#training" class="bento-arrow"><span class="icon-arrow-up-right"></span></a>
                                     </div>
                                 </div>
                             </div>
@@ -481,6 +484,8 @@
     <script src="../../../src/assets/js/core/auth.js"></script>
     <script src="../../../src/assets/js/core/app.js"></script>
     <script src="../../../src/api/api.js"></script>
+    <script src="../../../src/api/cms.homepage.js"></script>
+    <script src="../../../src/assets/js/modules/services.bento.js"></script>
     <script src="../../../src/utils/helpers.js"></script>
 </body>
 

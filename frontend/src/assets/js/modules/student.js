@@ -55,8 +55,8 @@ $(document).ready(function () {
         dashboard: '<div class="view-container">' +
             '<div class="mb-4"><h3 style="font-family:var(--nexin-font);font-weight:600" id="welcomeGreeting">Welcome back!</h3><p style="color:var(--admin-text-muted)">Ready to continue learning?</p></div>' +
             '<div class="kpi-grid">' +
-                '<div class="admin-card kpi-card"><div class="kpi-icon courses"><i class="fal fa-graduation-cap"></i></div><div class="kpi-info"><span class="kpi-value" id="kpiEnrolled">0</span><span class="kpi-label">Courses In Progress</span></div></div>' +
-                '<div class="admin-card kpi-card"><div class="kpi-icon projects"><i class="fal fa-check-circle"></i></div><div class="kpi-info"><span class="kpi-value" id="kpiCompleted">0</span><span class="kpi-label">Completed Courses</span></div></div>' +
+                '<div class="admin-card kpi-card gradient-blue"><div class="kpi-icon"><i class="fal fa-graduation-cap"></i></div><div class="kpi-info"><span class="kpi-value" id="kpiEnrolled">0</span><span class="kpi-label">Courses In Progress</span></div></div>' +
+                '<div class="admin-card kpi-card gradient-emerald"><div class="kpi-icon"><i class="fal fa-check-circle"></i></div><div class="kpi-info"><span class="kpi-value" id="kpiCompleted">0</span><span class="kpi-label">Completed Courses</span></div></div>' +
             '</div>' +
             '<div class="row gutter-y-30">' +
                 '<div class="col-lg-8">' +

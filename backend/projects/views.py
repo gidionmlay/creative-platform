@@ -3,10 +3,10 @@ from rest_framework.views import APIView
 from django.shortcuts import get_object_or_404
 from core.utils import success_response, error_response
 from core.permissions import IsAdminUserRole, IsClientUser
-from .models import Project, ProjectMessage, ProjectFile
+from .models import Project, ProjectMessage, ProjectFile, ProjectTimeline
 from .serializers import (
     ProjectListSerializer, ProjectDetailSerializer, ProjectCreateSerializer,
-    ProjectMessageSerializer, ProjectFileSerializer
+    ProjectMessageSerializer, ProjectFileSerializer, ProjectTimelineSerializer
 )
 
 class AdminProjectListView(generics.ListCreateAPIView):
@@ -19,6 +19,14 @@ class AdminProjectListView(generics.ListCreateAPIView):
         if status_filter:
             queryset = queryset.filter(status=status_filter)
         return queryset
+
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
+        return success_response(
+            data=serializer.data,
+            message="Projects fetched"
+        )
 
     def create(self, request, *args, **kwargs):
         # Admin can manually create projects
@@ -189,9 +197,8 @@ class ClientProjectRevisionView(APIView):
         project.status = 'REVISION_REQUESTED'
         project.save()
         
-        reason = request.data.get('reason', 'Revision requested by client')
+        reason = request.data.get('revision_notes') or request.data.get('reason') or 'Revision requested by client'
         
-        # Add message if provided
         if reason:
             ProjectMessage.objects.create(
                 project=project,
@@ -210,10 +217,24 @@ class ClientProjectApproveView(APIView):
         project.progress = 100
         project.save()
         
-        from projects.models import ProjectTimeline
         ProjectTimeline.objects.create(
             project=project,
             action="Project approved by Client",
             actor=request.user
         )
         return success_response(ProjectDetailSerializer(project).data, "Project approved and marked completed")
+
+class ClientProjectTimelineView(generics.ListAPIView):
+    serializer_class = ProjectTimelineSerializer
+    permission_classes = [permissions.IsAuthenticated, IsClientUser]
+
+    def get_queryset(self):
+        return ProjectTimeline.objects.filter(
+            project__pk=self.kwargs['pk'],
+            project__client=self.request.user
+        )
+
+    def list(self, request, *args, **kwargs):
+        queryset = self.get_queryset()
+        serializer = self.get_serializer(queryset, many=True)
+        return success_response(serializer.data, "Timeline fetched")

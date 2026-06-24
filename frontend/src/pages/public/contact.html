@@ -66,7 +66,7 @@
         }, 3000);
     </script>
 
-    <div class="chat-icon"><button type="button" class="chat-toggler"><i class="fa fa-comment"></i></button></div>
+    <div class="chat-icon"><button type="button" class="chat-toggler" title="Send us a message" aria-label="Send us a message"><i class="fa fa-comment"></i></button></div>
     <!--Chat Popup-->
     <div id="chat-popup" class="chat-popup">
         <div class="popup-inner">
@@ -79,6 +79,9 @@
                     </div>
                     <div class="form-group">
                         <input type="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" name="phone" placeholder="Phone Number" required>
                     </div>
                     <div class="form-group">
                         <textarea name="message" placeholder="Your Text" required></textarea>
@@ -382,6 +385,7 @@
     <script src="../../../src/assets/js/vendor/swiper.min.js" defer></script>
     <script src="../../../src/assets/js/vendor/wow.js" defer></script>
     <script src="../../../src/api/api.js"></script>
+    <script src="../../../src/api/cms.homepage.js"></script>
     <script src="../../../src/utils/helpers.js"></script>
 </body>
 

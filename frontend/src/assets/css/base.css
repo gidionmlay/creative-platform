@@ -96,15 +96,18 @@ body.boxed-wrapper .page-wrapper,
 
 .service-one__single-wrap,
 .why-choose-one,
-.process-one__single,
-.counter-one,
-.team-one__content,
-.testimonial-one__single,
 .contact-one__right,
-.pricing-one__single,
+.pricing-one__single {
+    background-color: #060b16;
+}
+
+.counter-one,
+.process-one__single,
+.testimonial-one__single,
+.team-one__content,
 .blog-one__single,
 .blog-one__single-two {
-    background-color: #060b16;
+    background-color: #ffffff;
 }
 
 
@@ -124,8 +127,6 @@ body.boxed-wrapper .page-wrapper,
 .why-choose-one__progress-title,
 .why-choose-one__progress .count-text,
 .why-choose-one__call-content h5 a,
-.process-one__title,
-.process-one__text,
 .team-one__name a,
 .testimonial-one__client-name a,
 .contact-one__call-box .content h3 a,
@@ -134,7 +135,6 @@ body.boxed-wrapper .page-wrapper,
 .faq-one__left .faq-one-accrodion .accrodion-title h4,
 .faq-one__left .faq-one-accrodion .accrodion.active .accrodion-title h4::before,
 .blog-one__user-title,
-.blog-one__title a,
 .blog-one__user-two-title,
 .blog-one__title-two a {
     color: var(--itzone-white);
@@ -157,8 +157,6 @@ body.boxed-wrapper .page-wrapper,
 .contact-one__call-box .content p,
 .contact-one__input-icon span,
 .faq-one__left .faq-one-accrodion .accrodion-content p,
-.blog-one__meta li a,
-.blog-one__text,
 .blog-one__meta-two li a,
 .blog-one__text-two {
     color: #afafaf;
@@ -203,7 +201,9 @@ body.boxed-wrapper .page-wrapper,
 }
 
 .banner-one {
-    background: linear-gradient(0deg, rgba(7, 13, 26, 0.78) 0%, rgba(7, 13, 26, 0) 100%);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .banner-one__shape-3,
@@ -247,7 +247,16 @@ body.boxed-wrapper .page-wrapper,
 }
 
 .process-one__count::before {
-    border: 10px solid #03050a;
+    border: none;
+    position: absolute;
+    top: -30px;
+    right: -20px;
+    font-size: 100px;
+    line-height: 1;
+    font-weight: 900;
+    color: rgba(0, 0, 0, 0.05);
+    z-index: 0;
+    pointer-events: none;
 }
 
 .testimonial-one__bg {

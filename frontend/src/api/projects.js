@@ -95,7 +95,7 @@ window.api.projects = {
     getMyProjects: async function() {
         var token = window.auth ? window.auth.getToken() : localStorage.getItem("token");
         if (!token) return { ok: false, data: { detail: "Unauthorized" } };
-        return await window.api.handleRequest(`${window.api.BASE_URL}/projects/`, {
+        return await window.api.handleRequest(`${window.api.BASE_URL}/projects/my/`, {
             method: "GET",
             headers: window.api.getAuthHeaders()
         });
@@ -162,5 +162,46 @@ window.api.projects = {
             method: "POST",
             headers: window.api.getAuthHeaders()
         });
+    },
+
+    /**
+     * Get project timeline (Client)
+     */
+    getProjectTimeline: async function(id) {
+        var token = window.auth ? window.auth.getToken() : localStorage.getItem("token");
+        if (!token) return { ok: false, data: { detail: "Unauthorized" } };
+        return await window.api.handleRequest(`${window.api.BASE_URL}/projects/${id}/timeline/`, {
+            method: "GET",
+            headers: window.api.getAuthHeaders()
+        });
+    },
+
+    /**
+     * Get project by id — alias for getClientProjectDetail
+     */
+    getProject: async function(id) {
+        return this.getClientProjectDetail(id);
+    },
+
+    /**
+     * Get project messages — fetched via detail endpoint
+     */
+    getProjectMessages: async function(id) {
+        var detail = await this.getClientProjectDetail(id);
+        if (detail.ok && detail.data && detail.data.data) {
+            return { ok: true, data: detail.data.data.messages || [] };
+        }
+        return { ok: false, data: [] };
+    },
+
+    /**
+     * Get project files — fetched via detail endpoint
+     */
+    getProjectFiles: async function(id) {
+        var detail = await this.getClientProjectDetail(id);
+        if (detail.ok && detail.data && detail.data.data) {
+            return { ok: true, data: detail.data.data.files || [] };
+        }
+        return { ok: false, data: [] };
     }
 };

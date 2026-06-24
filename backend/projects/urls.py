@@ -2,7 +2,8 @@ from django.urls import path
 from .views import (
     ClientProjectListView, ClientProjectDetailView,
     ClientProjectMessageView, ClientProjectFileView,
-    ClientProjectRevisionView, ClientProjectApproveView
+    ClientProjectRevisionView, ClientProjectApproveView,
+    ClientProjectTimelineView
 )
 
 urlpatterns = [
@@ -12,4 +13,5 @@ urlpatterns = [
     path('<int:pk>/files/', ClientProjectFileView.as_view(), name='client-project-files'),
     path('<int:pk>/revision/', ClientProjectRevisionView.as_view(), name='client-project-revision'),
     path('<int:pk>/approve/', ClientProjectApproveView.as_view(), name='client-project-approve'),
+    path('<int:pk>/timeline/', ClientProjectTimelineView.as_view(), name='client-project-timeline'),
 ]

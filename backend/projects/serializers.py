@@ -14,7 +14,7 @@ class ProjectMessageSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProjectMessage
         fields = ['id', 'project', 'sender', 'sender_details', 'message', 'created_at']
-        read_only_fields = ['sender', 'created_at']
+        read_only_fields = ['project', 'sender', 'created_at']
 
 class ProjectFileSerializer(serializers.ModelSerializer):
     uploaded_by_details = UserBasicSerializer(source='uploaded_by', read_only=True)
@@ -23,7 +23,7 @@ class ProjectFileSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProjectFile
         fields = ['id', 'project', 'uploaded_by', 'uploaded_by_details', 'file', 'filename', 'file_type', 'file_size', 'is_deliverable', 'created_at']
-        read_only_fields = ['uploaded_by', 'file_size', 'created_at']
+        read_only_fields = ['project', 'uploaded_by', 'file_size', 'created_at']
         
     def get_filename(self, obj):
         if obj.file:
@@ -51,12 +51,16 @@ class ProjectTimelineSerializer(serializers.ModelSerializer):
         read_only_fields = ['created_at']
 
 class ProjectListSerializer(serializers.ModelSerializer):
-    client_name = serializers.CharField(source='client.get_full_name', read_only=True)
+    client_name = serializers.SerializerMethodField()
     service_title = serializers.CharField(source='service.title', read_only=True)
+
+    def get_client_name(self, obj):
+        name = obj.client.get_full_name()
+        return name if name else obj.client.username
     
     class Meta:
         model = Project
-        fields = ['id', 'title', 'client', 'client_name', 'service', 'service_title', 'status', 'progress', 'due_date', 'created_at']
+        fields = ['id', 'title', 'client', 'client_name', 'service', 'service_title', 'status', 'progress', 'due_date', 'created_at', 'updated_at']
 
 class ProjectDetailSerializer(serializers.ModelSerializer):
     client_details = UserBasicSerializer(source='client', read_only=True)

@@ -51,6 +51,14 @@ urlpatterns = [
 
     # Media Library
     path('api/v1/admin/media/', include('media_library.admin_urls')),
+
+    # Content CMS
+    path('api/v1/content/homepage/', include('cms.urls')),
+    path('api/v1/admin/content/homepage/', include('cms.admin_urls')),
+
+    # Contact Messages
+    path('api/v1/content/contact-messages/', include('cms.contact_urls')),
+    path('api/v1/admin/content/contact-messages/', include('cms.admin_contact_urls')),
 ]
 
 if settings.DEBUG:

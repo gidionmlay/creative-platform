@@ -37,6 +37,26 @@ document.addEventListener("click", function(e) {
         var dd = document.getElementById("profileDropdown");
         if (dd) dd.classList.remove("active");
     }
+
+    // Global revision modal handlers
+    if (e.target.closest('#closeRevisionModalGlobal') || e.target.closest('#cancelRevisionBtnGlobal')) {
+        e.preventDefault();
+        var revOverlay = document.getElementById('revisionModalOverlay');
+        if (revOverlay) $(revOverlay).fadeOut(200);
+    }
+    if (e.target.id === 'revisionModalOverlay') {
+        $(e.target).fadeOut(200);
+    }
+
+    // Global image preview modal handlers
+    if (e.target.closest('#closeImgPreviewModalGlobal')) {
+        e.preventDefault();
+        var imgOverlay = document.getElementById('imgPreviewModalOverlay');
+        if (imgOverlay) $(imgOverlay).fadeOut(200);
+    }
+    if (e.target.id === 'imgPreviewModalOverlay') {
+        $(e.target).fadeOut(200);
+    }
 });
 
 $(document).ready(function () {
@@ -64,22 +84,22 @@ $(document).ready(function () {
         dashboard: '<div class="view-container">' +
             '<div class="mb-4"><h3 style="font-family:var(--nexin-font);font-weight:600" id="welcomeGreeting">Welcome back!</h3><p style="color:var(--admin-text-muted)">Here\'s an overview of your requests</p></div>' +
             '<div class="kpi-grid">' +
-                '<div class="admin-card kpi-card"><div class="kpi-icon orders"><i class="fal fa-clock"></i></div><div class="kpi-info"><span class="kpi-value" id="dashPendingReq">0</span><span class="kpi-label">Pending Requests</span></div></div>' +
-                '<div class="admin-card kpi-card"><div class="kpi-icon courses"><i class="fal fa-check-circle"></i></div><div class="kpi-info"><span class="kpi-value" id="dashApprovedReq">0</span><span class="kpi-label">Approved Requests</span></div></div>' +
+                '<div class="admin-card kpi-card gradient-amber"><div class="kpi-icon"><i class="fal fa-clock"></i></div><div class="kpi-info"><span class="kpi-value" id="dashPendingReq">0</span><span class="kpi-label">Pending Requests</span></div></div>' +
+                '<div class="admin-card kpi-card gradient-emerald"><div class="kpi-icon"><i class="fal fa-check-circle"></i></div><div class="kpi-info"><span class="kpi-value" id="dashApprovedReq">0</span><span class="kpi-label">Approved Requests</span></div></div>' +
             '</div>' +
             '<div class="row gutter-y-30">' +
                 '<div class="col-lg-8"><div class="admin-card"><div class="card-header"><h3 class="card-title">Recent Requests</h3></div><div class="admin-table-container"><table class="admin-table"><thead><tr><th>Title</th><th>Service</th><th>Status</th></tr></thead><tbody id="dashRequestsTableBody"></tbody></table></div></div></div>' +
                 '<div class="col-lg-4"><div class="admin-card mb-4"><div class="card-header"><h3 class="card-title">Quick Actions</h3></div><div style="display:flex;flex-direction:column;gap:15px"><button class="admin-btn" style="width:100%" data-view-trigger="requests"><i class="fal fa-plus" style="margin-right:8px"></i>Manage Requests</button><button class="admin-btn secondary" style="width:100%" data-view-trigger="services"><i class="fal fa-magic" style="margin-right:8px"></i>Explore Services</button></div></div></div>' +
             '</div></div>',
 
-        projects: '<div class="view-container"><div class="admin-card" style="padding:60px;text-align:center"><i class="fal fa-folder-open" style="font-size:48px;color:var(--admin-border);margin-bottom:20px;display:block"></i><h3 class="card-title" style="margin-bottom:10px">My Projects</h3><p style="color:var(--admin-text-muted)">No active projects yet. Once your service requests are approved, your projects will appear here.</p></div></div>',
+        projects: '<div class="view-container"><div class="mb-4"><h3 style="font-family:var(--nexin-font);font-weight:600">My Projects</h3><p style="color:var(--admin-text-muted)">Track and review your project deliverables</p></div><div id="projectsListView"></div></div>',
 
         requests: '<div class="view-container">' +
             '<div class="mb-4 d-flex justify-content-between align-items-center"><div><h3 style="font-family:var(--nexin-font);font-weight:600">My Requests</h3><p style="color:var(--admin-text-muted)">Track and manage your service requests</p></div><button class="admin-btn" id="openRequestModalBtn" data-view-trigger="services"><i class="fal fa-plus" style="margin-right:8px"></i>New Request</button></div>' +
             '<div class="kpi-grid mb-4">' +
-                '<div class="admin-card kpi-card"><div class="kpi-icon projects"><i class="fal fa-list-alt"></i></div><div class="kpi-info"><span class="kpi-value" id="kpiTotalRequests">0</span><span class="kpi-label">Total Requests</span></div></div>' +
-                '<div class="admin-card kpi-card"><div class="kpi-icon orders" style="color:var(--status-warning);background:rgba(255,193,7,.1)"><i class="fal fa-clock"></i></div><div class="kpi-info"><span class="kpi-value" id="kpiPendingRequests">0</span><span class="kpi-label">Pending</span></div></div>' +
-                '<div class="admin-card kpi-card"><div class="kpi-icon courses" style="color:var(--status-success);background:rgba(40,167,69,.1)"><i class="fal fa-check-circle"></i></div><div class="kpi-info"><span class="kpi-value" id="kpiApprovedRequests">0</span><span class="kpi-label">Approved</span></div></div>' +
+                '<div class="admin-card kpi-card gradient-teal"><div class="kpi-icon"><i class="fal fa-list-alt"></i></div><div class="kpi-info"><span class="kpi-value" id="kpiTotalRequests">0</span><span class="kpi-label">Total Requests</span></div></div>' +
+                '<div class="admin-card kpi-card gradient-amber"><div class="kpi-icon"><i class="fal fa-clock"></i></div><div class="kpi-info"><span class="kpi-value" id="kpiPendingRequests">0</span><span class="kpi-label">Pending</span></div></div>' +
+                '<div class="admin-card kpi-card gradient-emerald"><div class="kpi-icon"><i class="fal fa-check-circle"></i></div><div class="kpi-info"><span class="kpi-value" id="kpiApprovedRequests">0</span><span class="kpi-label">Approved</span></div></div>' +
             '</div>' +
             '<div class="admin-card"><div class="admin-table-container"><table class="admin-table"><thead><tr><th>Title</th><th>Service</th><th>Budget</th><th>Status</th><th>Date</th></tr></thead><tbody id="clientRequestsTable"></tbody></table>' +
                 '<div id="requestsEmptyState" style="display:none;padding:40px;text-align:center"><div style="font-size:40px;color:var(--admin-border);margin-bottom:15px"><i class="fal fa-folder-open"></i></div><h4 style="font-family:var(--nexin-font);font-weight:600">No requests yet</h4><p style="color:var(--admin-text-muted);margin-bottom:20px">Explore our services to create your first request.</p><button class="admin-btn secondary" id="emptyStateNewRequestBtn" data-view-trigger="services">Explore Services</button></div>' +
@@ -201,6 +221,11 @@ $(document).ready(function () {
 
         if (viewName === 'dashboard') { updateKPIs(); renderDashboard(); }
         if (viewName === 'requests')  { updateKPIs(); renderRequests(); }
+        if (viewName === 'projects')  {
+            if (window.clientProjects) {
+                window.clientProjects.loadMyProjects();
+            }
+        }
         if (viewName === 'services')  {
             if (window.clientServicesLifecycle) {
                 window.clientServicesLifecycle.init();
@@ -284,6 +309,41 @@ $(document).ready(function () {
         </div>';
     
     document.body.insertAdjacentHTML('beforeend', requestModalHTML);
+
+    // Inject Revision Modal HTML (if not already present)
+    if (!document.getElementById('revisionModalOverlay')) {
+        document.body.insertAdjacentHTML('beforeend', '' +
+            '<div id="revisionModalOverlay" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:1100;backdrop-filter:blur(4px);align-items:center;justify-content:center;">' +
+                '<div style="background:#fff;border-radius:12px;width:100%;max-width:500px;margin:20px;box-shadow:0 20px 60px rgba(0,0,0,0.15);animation:fadeIn 0.2s ease;overflow:hidden;">' +
+                    '<div style="padding:20px 24px;border-bottom:1px solid var(--admin-border);display:flex;justify-content:space-between;align-items:center;">' +
+                        '<h3 style="margin:0;font-size:16px;font-weight:600;">Request Revision</h3>' +
+                        '<button id="closeRevisionModalGlobal" style="background:none;border:none;font-size:20px;color:var(--admin-text-muted);cursor:pointer;"><i class="fal fa-times"></i></button>' +
+                    '</div>' +
+                    '<form id="revisionFormGlobal" style="padding:24px;">' +
+                        '<div style="margin-bottom:16px;">' +
+                            '<label style="font-size:13px;font-weight:500;display:block;margin-bottom:6px;color:var(--admin-text);">Revision Notes <span style="color:var(--status-danger);">*</span></label>' +
+                            '<textarea id="revisionNotesGlobal" rows="5" required style="width:100%;padding:12px;border:1px solid var(--admin-border);border-radius:8px;font-family:inherit;font-size:13px;resize:vertical;outline:none;" placeholder="Please describe what changes you need..."></textarea>' +
+                        '</div>' +
+                        '<div style="display:flex;gap:10px;justify-content:flex-end;">' +
+                            '<button type="button" id="cancelRevisionBtnGlobal" class="admin-btn secondary" style="padding:10px 20px;font-size:13px;">Cancel</button>' +
+                            '<button type="submit" id="submitRevisionBtnGlobal" class="admin-btn" style="padding:10px 20px;font-size:13px;background:var(--status-warning);border-color:var(--status-warning);">' +
+                                '<span class="btn-text">Submit Revision Request</span>' +
+                                '<span class="btn-spinner" style="display:none;"><i class="fas fa-spinner fa-spin"></i></span>' +
+                            '</button>' +
+                        '</div>' +
+                    '</form>' +
+                '</div>' +
+            '</div>');
+    }
+
+    // Inject Image Preview Modal HTML
+    if (!document.getElementById('imgPreviewModalOverlay')) {
+        document.body.insertAdjacentHTML('beforeend', '' +
+            '<div id="imgPreviewModalOverlay" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);z-index:1150;align-items:center;justify-content:center;backdrop-filter:blur(8px);">' +
+                '<button id="closeImgPreviewModalGlobal" style="position:absolute;top:20px;right:20px;background:rgba(255,255,255,0.1);border:none;font-size:24px;color:white;width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;"><i class="fal fa-times"></i></button>' +
+                '<img id="imgPreviewFullGlobal" src="" alt="Preview" style="max-width:90%;max-height:90%;border-radius:8px;box-shadow:0 10px 40px rgba(0,0,0,0.3);object-fit:contain;">' +
+            '</div>');
+    }
 
     window.openRequestModal = function(service) {
         if (!service) return;
@@ -411,6 +471,85 @@ $(document).ready(function () {
             fileInput.value = '';
         }
     }
+
+    // Global Revision Form Submission
+    $(document).on('submit', '#revisionFormGlobal', async function(e) {
+        e.preventDefault();
+        var notes = document.getElementById('revisionNotesGlobal');
+        if (!notes || !notes.value.trim()) {
+            if (window.showToast) window.showToast('error', 'Please enter revision notes.');
+            return;
+        }
+        var project = window.clientProjects ? window.clientProjects.getCurrentProject() : null;
+        if (!project) {
+            if (window.showToast) window.showToast('error', 'No active project selected.');
+            return;
+        }
+        var submitBtn = document.getElementById('submitRevisionBtnGlobal');
+        var btnText = submitBtn ? submitBtn.querySelector('.btn-text') : null;
+        var btnSpin = submitBtn ? submitBtn.querySelector('.btn-spinner') : null;
+        if (submitBtn) {
+            submitBtn.disabled = true;
+            if (btnText) btnText.style.display = 'none';
+            if (btnSpin) btnSpin.style.display = 'inline-block';
+        }
+
+        var res = await window.api.projects.requestProjectRevision(project.id, notes.value.trim());
+        if (res && res.ok) {
+            var overlay = document.getElementById('revisionModalOverlay');
+            if (overlay) $(overlay).fadeOut(200);
+            if (window.showToast) window.showToast('success', 'Revision requested. Admin has been notified.');
+            if (window.clientProjects && window.clientProjects.openProjectWorkspace) {
+                window.clientProjects.openProjectWorkspace(project.id);
+            }
+        } else {
+            if (window.showToast) window.showToast('error', 'Failed to request revision.');
+        }
+        if (submitBtn) {
+            submitBtn.disabled = false;
+            if (btnText) btnText.style.display = 'inline-block';
+            if (btnSpin) btnSpin.style.display = 'none';
+        }
+    });
+
+    // Global "Request Revision" button handler (opens modal)
+    $(document).on('click', '#btnRequestRevision', function(e) {
+        e.preventDefault();
+        var overlay = document.getElementById('revisionModalOverlay');
+        var ta = document.getElementById('revisionNotesGlobal');
+        if (ta) ta.value = '';
+        if (overlay) $(overlay).css('display', 'flex').hide().fadeIn(200);
+    });
+
+    // Global "Approve Project" button handler
+    $(document).on('click', '#btnApproveProject', async function(e) {
+        e.preventDefault();
+        var project = window.clientProjects ? window.clientProjects.getCurrentProject() : null;
+        if (!project) return;
+        if (!confirm('Are you sure you want to approve this project? This will mark it as completed.')) return;
+        var $btn = $(this);
+        $btn.prop('disabled', true).html('<i class="fas fa-spinner fa-spin"></i> Approving...');
+        var res = await window.api.projects.approveProjectCompletion(project.id);
+        if (res && res.ok) {
+            if (window.showToast) window.showToast('success', 'Project approved! Thank you.');
+            if (window.clientProjects && window.clientProjects.openProjectWorkspace) {
+                window.clientProjects.openProjectWorkspace(project.id);
+            }
+        } else {
+            if (window.showToast) window.showToast('error', 'Failed to approve project.');
+            $btn.prop('disabled', false).html('<i class="fal fa-check-circle" style="margin-right:8px;"></i>Approve Project');
+        }
+    });
+
+    // Global image preview - set image source before showing
+    $(document).on('click', '.ws-file-preview', function(e) {
+        e.preventDefault();
+        var url = $(this).data('url');
+        if (url) {
+            $('#imgPreviewFullGlobal').attr('src', url);
+            $('#imgPreviewModalOverlay').css('display', 'flex').hide().fadeIn(200);
+        }
+    });
 
     // Form submission
     $('#premiumCreateRequestForm').on('submit', async function(e) {

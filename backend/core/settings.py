@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'services',
     'media_library',
     'projects',
+    'cms',
 ]
 
 MIDDLEWARE = [

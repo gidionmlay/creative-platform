@@ -75,55 +75,68 @@ $(document).ready(function () {
             
             '<!-- ROW 1 KPIs -->' +
             '<div class="kpi-grid mb-4">' +
-                '<div class="admin-card kpi-card"><div class="kpi-icon" style="color:var(--admin-accent);background:rgba(59,130,246,.1)"><i class="fal fa-users"></i></div><div class="kpi-info"><span class="kpi-value" id="kpiTotalUsers">0</span><span class="kpi-label">Total Users</span></div></div>' +
-                '<div class="admin-card kpi-card"><div class="kpi-icon" style="color:var(--status-success);background:rgba(40,167,69,.1)"><i class="fal fa-graduation-cap"></i></div><div class="kpi-info"><span class="kpi-value" id="kpiTotalEnrollments">0</span><span class="kpi-label">Total Enrollments</span></div></div>' +
-                '<div class="admin-card kpi-card"><div class="kpi-icon" style="color:var(--status-warning);background:rgba(255,193,7,.1)"><i class="fal fa-inbox-in"></i></div><div class="kpi-info"><span class="kpi-value" id="kpiTotalRequests">0</span><span class="kpi-label">Total Requests</span></div></div>' +
-                '<div class="admin-card kpi-card"><div class="kpi-icon projects"><i class="fal fa-clock"></i></div><div class="kpi-info"><span class="kpi-value" id="kpiPendingRequests">0</span><span class="kpi-label">Pending Requests</span></div></div>' +
+                '<div class="admin-card kpi-card gradient-teal"><div class="kpi-icon"><i class="fal fa-users"></i></div><div class="kpi-info"><span class="kpi-value" id="kpiTotalUsers">0</span><span class="kpi-label">Total Users</span></div></div>' +
+                '<div class="admin-card kpi-card gradient-emerald"><div class="kpi-icon"><i class="fal fa-graduation-cap"></i></div><div class="kpi-info"><span class="kpi-value" id="kpiTotalEnrollments">0</span><span class="kpi-label">Total Enrollments</span></div></div>' +
+                '<div class="admin-card kpi-card gradient-amber"><div class="kpi-icon"><i class="fal fa-inbox-in"></i></div><div class="kpi-info"><span class="kpi-value" id="kpiTotalRequests">0</span><span class="kpi-label">Total Requests</span></div></div>' +
+                '<div class="admin-card kpi-card gradient-purple"><div class="kpi-icon"><i class="fal fa-clock"></i></div><div class="kpi-info"><span class="kpi-value" id="kpiPendingRequests">0</span><span class="kpi-label">Pending Requests</span></div></div>' +
             '</div>' +
             
             '<!-- ROW 2 KPIs -->' +
             '<div class="kpi-grid mb-4">' +
-                '<div class="admin-card kpi-card"><div class="kpi-icon" style="color:var(--status-success);background:rgba(40,167,69,.1)"><i class="fal fa-fire"></i></div><div class="kpi-info"><span class="kpi-value" id="kpiActiveStudents">0</span><span class="kpi-label">Active Students</span></div></div>' +
-                '<div class="admin-card kpi-card"><div class="kpi-icon" style="color:var(--admin-accent);background:rgba(59,130,246,.1)"><i class="fal fa-books"></i></div><div class="kpi-info"><span class="kpi-value" id="kpiPublishedCourses">0</span><span class="kpi-label">Published Courses</span></div></div>' +
-                '<div class="admin-card kpi-card"><div class="kpi-icon" style="color:var(--status-warning);background:rgba(255,193,7,.1)"><i class="fal fa-check-circle"></i></div><div class="kpi-info"><span class="kpi-value" id="kpiCompletionRate">0%</span><span class="kpi-label">Completion Rate</span></div></div>' +
-                '<div class="admin-card kpi-card"><div class="kpi-icon projects"><i class="fal fa-chart-line"></i></div><div class="kpi-info"><span class="kpi-value" id="kpiMonthlyGrowth">0%</span><span class="kpi-label">Monthly Growth</span><span id="kpiMonthlyGrowthTrend" style="margin-top: 4px; display: inline-block;"></span></div></div>' +
+                '<div class="admin-card kpi-card gradient-green"><div class="kpi-icon"><i class="fal fa-fire"></i></div><div class="kpi-info"><span class="kpi-value" id="kpiActiveStudents">0</span><span class="kpi-label">Active Students</span></div></div>' +
+                '<div class="admin-card kpi-card gradient-blue"><div class="kpi-icon"><i class="fal fa-books"></i></div><div class="kpi-info"><span class="kpi-value" id="kpiPublishedCourses">0</span><span class="kpi-label">Published Courses</span></div></div>' +
+                '<div class="admin-card kpi-card gradient-pink"><div class="kpi-icon"><i class="fal fa-check-circle"></i></div><div class="kpi-info"><span class="kpi-value" id="kpiCompletionRate">0%</span><span class="kpi-label">Completion Rate</span></div></div>' +
+                '<div class="admin-card kpi-card gradient-indigo"><div class="kpi-icon"><i class="fal fa-chart-line"></i></div><div class="kpi-info"><span class="kpi-value" id="kpiMonthlyGrowth">0%</span><span class="kpi-label">Monthly Growth</span><span id="kpiMonthlyGrowthTrend" style="margin-top: 4px; display: inline-block;"></span></div></div>' +
             '</div>' +
             
-            '<!-- CHARTS & ACTIVITY -->' +
+            '<!-- CHARTS -->' +
             '<div class="row gutter-y-30">' +
                 '<div class="col-lg-8">' +
-                    '<div class="admin-card mb-4" style="height: 350px; display: flex; flex-direction: column;">' +
+                    '<div class="chart-card mb-4" style="height: 350px; display: flex; flex-direction: column;">' +
                         '<div class="card-header"><h3 class="card-title">User Growth Trend</h3></div>' +
-                        '<div id="userGrowthChartContainer" style="flex: 1; min-height: 0; padding: 15px;"><canvas id="userGrowthChart"></canvas></div>' +
+                        '<div id="userGrowthChartContainer" style="flex: 1; min-height: 0; padding: 10px 15px;"><canvas id="userGrowthChart"></canvas></div>' +
                     '</div>' +
-                    '<div class="admin-card" style="height: 350px; display: flex; flex-direction: column;">' +
+                    '<div class="chart-card" style="height: 350px; display: flex; flex-direction: column;">' +
                         '<div class="card-header"><h3 class="card-title">Request Activity Flow</h3></div>' +
-                        '<div id="requestFlowChartContainer" style="flex: 1; min-height: 0; padding: 15px;"><canvas id="requestFlowChart"></canvas></div>' +
+                        '<div id="requestFlowChartContainer" style="flex: 1; min-height: 0; padding: 10px 15px;"><canvas id="requestFlowChart"></canvas></div>' +
                     '</div>' +
                 '</div>' +
                 '<div class="col-lg-4">' +
-                    '<div class="admin-card" style="height: 100%; min-height: 730px; display: flex; flex-direction: column;">' +
+                    '<div class="chart-card mb-4" style="display: flex; flex-direction: column;">' +
                         '<div class="card-header"><h3 class="card-title">Recent Activity</h3></div>' +
-                        '<div id="recentActivityFeed" style="flex: 1; overflow-y: auto; padding: 15px;"></div>' +
+                        '<div id="recentActivityFeed" style="padding: 5px 15px 0;"></div>' +
+                        '<div style="padding: 8px 15px 12px; border-top: 1px solid var(--admin-border); text-align: center;">' +
+                            '<button class="admin-btn secondary" style="width:100%;padding:8px 16px;font-size:13px;" data-view-trigger="requests"><i class="fal fa-list" style="margin-right:6px"></i>View All Activity</button>' +
+                        '</div>' +
+                    '</div>' +
+                    '<div class="chart-card" style="display: flex; flex-direction: column;">' +
+                        '<div class="card-header"><h3 class="card-title">Quick Actions</h3></div>' +
+                        '<div style="padding: 10px 15px 15px; display: flex; flex-direction: column; gap: 8px;">' +
+                            '<button class="quick-action-btn" data-view-trigger="services"><i class="fal fa-plus-circle"></i> Create Service</button>' +
+                            '<button class="quick-action-btn" data-view-trigger="training"><i class="fal fa-graduation-cap"></i> Create Course</button>' +
+                            '<button class="quick-action-btn" data-view-trigger="projects"><i class="fal fa-folder-plus"></i> Create Project</button>' +
+                            '<button class="quick-action-btn" data-view-trigger="users"><i class="fal fa-user-plus"></i> Add User</button>' +
+                            '<button class="quick-action-btn" data-view-trigger="requests"><i class="fal fa-clipboard-list"></i> View Requests</button>' +
+                        '</div>' +
                     '</div>' +
                 '</div>' +
             '</div>' +
             '</div>',
         requests: '<div class="view-container">' +
             '<div class="kpi-grid mb-4">' +
-                '<div class="admin-card kpi-card"><div class="kpi-icon projects"><i class="fal fa-inbox-in"></i></div><div class="kpi-info"><span class="kpi-value" id="kpiTotalRequests">0</span><span class="kpi-label">Total Requests</span></div></div>' +
-                '<div class="admin-card kpi-card"><div class="kpi-icon" style="color:var(--status-warning);background:rgba(255,193,7,.1)"><i class="fal fa-clock"></i></div><div class="kpi-info"><span class="kpi-value" id="kpiPendingRequests">0</span><span class="kpi-label">Pending</span></div></div>' +
-                '<div class="admin-card kpi-card"><div class="kpi-icon" style="color:var(--status-success);background:rgba(40,167,69,.1)"><i class="fal fa-check-circle"></i></div><div class="kpi-info"><span class="kpi-value" id="kpiApprovedRequests">0</span><span class="kpi-label">Approved</span></div></div>' +
-                '<div class="admin-card kpi-card"><div class="kpi-icon" style="color:var(--status-danger);background:rgba(220,53,69,.1)"><i class="fal fa-times-circle"></i></div><div class="kpi-info"><span class="kpi-value" id="kpiRejectedRequests">0</span><span class="kpi-label">Rejected</span></div></div>' +
+                '<div class="admin-card kpi-card gradient-teal"><div class="kpi-icon"><i class="fal fa-inbox-in"></i></div><div class="kpi-info"><span class="kpi-value" id="kpiTotalRequests">0</span><span class="kpi-label">Total Requests</span></div></div>' +
+                '<div class="admin-card kpi-card gradient-amber"><div class="kpi-icon"><i class="fal fa-clock"></i></div><div class="kpi-info"><span class="kpi-value" id="kpiPendingRequests">0</span><span class="kpi-label">Pending</span></div></div>' +
+                '<div class="admin-card kpi-card gradient-emerald"><div class="kpi-icon"><i class="fal fa-check-circle"></i></div><div class="kpi-info"><span class="kpi-value" id="kpiApprovedRequests">0</span><span class="kpi-label">Approved</span></div></div>' +
+                '<div class="admin-card kpi-card gradient-pink"><div class="kpi-icon"><i class="fal fa-times-circle"></i></div><div class="kpi-info"><span class="kpi-value" id="kpiRejectedRequests">0</span><span class="kpi-label">Rejected</span></div></div>' +
             '</div>' +
             '<div class="admin-card"><div class="admin-table-container"><table class="admin-table"><thead><tr><th>Client</th><th>Service</th><th>Project Title</th><th>Qty</th><th>Brief</th><th>Attachments</th><th>Status</th><th>Date</th><th>Actions</th></tr></thead><tbody id="requestsTableBody"></tbody></table></div></div>' +
             '</div>',
         users: '<div class="view-container">' +
             '<div class="kpi-grid mb-4">' +
-                '<div class="admin-card kpi-card"><div class="kpi-icon" style="color:var(--admin-accent);background:rgba(59,130,246,.1)"><i class="fal fa-users"></i></div><div class="kpi-info"><span class="kpi-value" id="usersTotal">0</span><span class="kpi-label">Total Users</span></div></div>' +
-                '<div class="admin-card kpi-card"><div class="kpi-icon" style="color:var(--status-success);background:rgba(16,185,129,.1)"><i class="fal fa-user-check"></i></div><div class="kpi-info"><span class="kpi-value" id="usersActive">0</span><span class="kpi-label">Active Users</span></div></div>' +
-                '<div class="admin-card kpi-card"><div class="kpi-icon" style="color:var(--status-danger);background:rgba(239,68,68,.1)"><i class="fal fa-user-lock"></i></div><div class="kpi-info"><span class="kpi-value" id="usersSuspended">0</span><span class="kpi-label">Suspended</span></div></div>' +
-                '<div class="admin-card kpi-card"><div class="kpi-icon" style="color:var(--status-info);background:rgba(59,130,246,.1)"><i class="fal fa-user-plus"></i></div><div class="kpi-info"><span class="kpi-value" id="usersNewWeek">0</span><span class="kpi-label">New This Week</span></div></div>' +
+                '<div class="admin-card kpi-card gradient-teal"><div class="kpi-icon"><i class="fal fa-users"></i></div><div class="kpi-info"><span class="kpi-value" id="usersTotal">0</span><span class="kpi-label">Total Users</span></div></div>' +
+                '<div class="admin-card kpi-card gradient-emerald"><div class="kpi-icon"><i class="fal fa-user-check"></i></div><div class="kpi-info"><span class="kpi-value" id="usersActive">0</span><span class="kpi-label">Active Users</span></div></div>' +
+                '<div class="admin-card kpi-card gradient-amber"><div class="kpi-icon"><i class="fal fa-user-lock"></i></div><div class="kpi-info"><span class="kpi-value" id="usersSuspended">0</span><span class="kpi-label">Suspended</span></div></div>' +
+                '<div class="admin-card kpi-card gradient-blue"><div class="kpi-icon"><i class="fal fa-user-plus"></i></div><div class="kpi-info"><span class="kpi-value" id="usersNewWeek">0</span><span class="kpi-label">New This Week</span></div></div>' +
             '</div>' +
             '<div class="admin-card">' +
                 '<div class="table-toolbar">' +
@@ -150,10 +163,10 @@ $(document).ready(function () {
             '</div>',
         projects: '<div class="view-container">' +
             '<div class="kpi-grid mb-4">' +
-                '<div class="admin-card kpi-card"><div class="kpi-icon projects"><i class="fal fa-folder-open"></i></div><div class="kpi-info"><span class="kpi-value" id="kpiTotalProjects">0</span><span class="kpi-label">Total Projects</span></div></div>' +
-                '<div class="admin-card kpi-card"><div class="kpi-icon" style="color:var(--status-warning);background:rgba(255,193,7,.1)"><i class="fal fa-clock"></i></div><div class="kpi-info"><span class="kpi-value" id="kpiActiveProjects">0</span><span class="kpi-label">Active Projects</span></div></div>' +
-                '<div class="admin-card kpi-card"><div class="kpi-icon" style="color:var(--status-success);background:rgba(40,167,69,.1)"><i class="fal fa-check-circle"></i></div><div class="kpi-info"><span class="kpi-value" id="kpiCompletedProjects">0</span><span class="kpi-label">Completed</span></div></div>' +
-                '<div class="admin-card kpi-card"><div class="kpi-icon" style="color:var(--status-danger);background:rgba(220,53,69,.1)"><i class="fal fa-exclamation-triangle"></i></div><div class="kpi-info"><span class="kpi-value" id="kpiDelayedProjects">0</span><span class="kpi-label">Delayed</span></div></div>' +
+                '<div class="admin-card kpi-card gradient-teal"><div class="kpi-icon"><i class="fal fa-folder-open"></i></div><div class="kpi-info"><span class="kpi-value" id="kpiTotalProjects">0</span><span class="kpi-label">Total Projects</span></div></div>' +
+                '<div class="admin-card kpi-card gradient-amber"><div class="kpi-icon"><i class="fal fa-clock"></i></div><div class="kpi-info"><span class="kpi-value" id="kpiActiveProjects">0</span><span class="kpi-label">Active Projects</span></div></div>' +
+                '<div class="admin-card kpi-card gradient-emerald"><div class="kpi-icon"><i class="fal fa-check-circle"></i></div><div class="kpi-info"><span class="kpi-value" id="kpiCompletedProjects">0</span><span class="kpi-label">Completed</span></div></div>' +
+                '<div class="admin-card kpi-card gradient-pink"><div class="kpi-icon"><i class="fal fa-exclamation-triangle"></i></div><div class="kpi-info"><span class="kpi-value" id="kpiDelayedProjects">0</span><span class="kpi-label">Delayed</span></div></div>' +
             '</div>' +
             '<div class="admin-card">' +
                 '<div class="table-toolbar">' +
@@ -229,6 +242,30 @@ $(document).ready(function () {
                     '<p style="color:var(--admin-text-muted)">Upload images, videos, or PDFs to centralize your design assets.</p>' +
                 '</div>' +
             '</div>' +
+            '</div>',
+        'homepage-cms': '<div class="view-container">' +
+            '<div class="d-flex justify-content-between align-items-center mb-4 flex-wrap" style="gap:15px">' +
+                '<div><h3 style="font-family:var(--nexin-font);font-weight:600">Homepage Image Manager</h3><p style="color:var(--admin-text-muted);margin:0;">Manage images displayed on the public homepage sections.</p></div>' +
+            '</div>' +
+            '<div id="homepageCmsContainer"></div>' +
+            '</div>',
+        'team-cms': '<div class="view-container">' +
+            '<div class="d-flex justify-content-between align-items-center mb-4 flex-wrap" style="gap:15px">' +
+                '<div><h3 style="font-family:var(--nexin-font);font-weight:600">Team Members</h3><p style="color:var(--admin-text-muted);margin:0;">Manage team members displayed on the public homepage.</p></div>' +
+            '</div>' +
+            '<div id="adminTeamContainer"></div>' +
+            '</div>',
+        'services-bento-cms': '<div class="view-container">' +
+            '<div class="d-flex justify-content-between align-items-center mb-4 flex-wrap" style="gap:15px">' +
+                '<div><h3 style="font-family:var(--nexin-font);font-weight:600">Services Bento Cards</h3><p style="color:var(--admin-text-muted);margin:0;">Manage bento card images for the "Everything you need" section on the services page.</p></div>' +
+            '</div>' +
+            '<div id="adminServicesBentoContainer"></div>' +
+            '</div>',
+        'messages-cms': '<div class="view-container">' +
+            '<div class="d-flex justify-content-between align-items-center mb-4 flex-wrap" style="gap:15px">' +
+                '<div><h3 style="font-family:var(--nexin-font);font-weight:600">Messages</h3><p style="color:var(--admin-text-muted);margin:0;">Review messages submitted by visitors through the floating contact form.</p></div>' +
+            '</div>' +
+            '<div id="adminMessagesContainer"></div>' +
             '</div>'
     };
 
@@ -486,7 +523,10 @@ $(document).ready(function () {
         console.log("📌 loadView:", viewName);
 
         var pt = document.getElementById('pageTitle');
-        if (pt) pt.textContent = viewName.charAt(0).toUpperCase() + viewName.slice(1);
+        if (pt) {
+            var titles = { 'homepage-cms': 'Homepage Image Manager', 'team-cms': 'Team Members', 'services-bento-cms': 'Services Bento Cards', 'messages-cms': 'Messages' };
+            pt.textContent = titles[viewName] || viewName.charAt(0).toUpperCase() + viewName.slice(1);
+        }
 
         var content = document.getElementById('adminContent');
         if (!content) { console.warn("⚠️ Missing: #adminContent"); return; }
@@ -506,6 +546,10 @@ $(document).ready(function () {
         if (viewName === 'services' && window.adminServicesLifecycle) { window.adminServicesLifecycle.init(); }
         if (viewName === 'projects' && window.adminProjectsLifecycle) { window.adminProjectsLifecycle.init(); }
         if (viewName === 'media' && window.adminMediaLifecycle) { window.adminMediaLifecycle.init(); }
+        if (viewName === 'homepage-cms' && window.adminHomepageCmsLifecycle) { window.adminHomepageCmsLifecycle.init(); }
+        if (viewName === 'team-cms' && window.adminTeamLifecycle) { window.adminTeamLifecycle.init(); }
+        if (viewName === 'services-bento-cms' && window.adminServicesBentoLifecycle) { window.adminServicesBentoLifecycle.init(); }
+        if (viewName === 'messages-cms' && window.adminMessagesLifecycle) { window.adminMessagesLifecycle.init(); }
 
         // Update active menu state
         document.querySelectorAll('.menu-item').forEach(function(el) { el.classList.remove('active'); });
